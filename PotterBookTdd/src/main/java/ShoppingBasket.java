@@ -4,11 +4,9 @@ public class ShoppingBasket {
 
     HashMap<Book, Integer> books = new HashMap<Book, Integer>();
 
-    int count = 0;
-
     public void add(Book book) {
-        books.put(book, 1);
-        count += 1;
+        int count = books.getOrDefault(book, 0);
+        books.put(book, count+1);
     }
 
     public boolean isEmpty() {
@@ -16,7 +14,7 @@ public class ShoppingBasket {
     }
 
     public int size() {
-        return count;
+        return books.values().stream().mapToInt(Integer::intValue).sum();
     }
 
     public int countDistinctBooks() {
