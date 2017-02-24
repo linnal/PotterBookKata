@@ -1,13 +1,20 @@
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 public class TestPriceCalculator {
 
+    ShoppingBasket shoppingBasket;
+    PriceCalculator priceCalculator;
+
+    @Before
+    public void init(){
+        shoppingBasket = new ShoppingBasket();
+        priceCalculator = new PriceCalculator(shoppingBasket);
+    }
+
     @Test
     public void emptyShoppingBasket(){
-        ShoppingBasket shoppingBasket = new ShoppingBasket();
-        PriceCalculator priceCalculator = new PriceCalculator(shoppingBasket);
-
         float price = priceCalculator.price();
 
         Assert.assertEquals(0, price, 0.0f);
@@ -15,9 +22,6 @@ public class TestPriceCalculator {
 
     @Test
     public void shouldReturnRealPriceForASingleBook(){
-        ShoppingBasket shoppingBasket = new ShoppingBasket();
-        PriceCalculator priceCalculator = new PriceCalculator(shoppingBasket);
-
         shoppingBasket.add(new Book("first"));
 
         float price = priceCalculator.price();
@@ -27,9 +31,6 @@ public class TestPriceCalculator {
 
     @Test
     public void addSameBookTwiceIntoTheBasket(){
-        ShoppingBasket shoppingBasket = new ShoppingBasket();
-        PriceCalculator priceCalculator = new PriceCalculator(shoppingBasket);
-
         Book book = new Book("first");
         shoppingBasket.add(book);
         shoppingBasket.add(book);
@@ -38,4 +39,5 @@ public class TestPriceCalculator {
 
         Assert.assertEquals(16, price, 0.00f);
     }
+
 }
