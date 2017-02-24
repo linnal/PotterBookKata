@@ -40,4 +40,18 @@ public class TestPriceCalculator {
         Assert.assertEquals(16, price, 0.00f);
     }
 
+    @Test
+    public void getDiscountFor2DifferentBooks(){
+        Book firstBbook = new Book("first");
+        Book secondBook = new Book("second");
+        shoppingBasket.add(firstBbook);
+        shoppingBasket.add(secondBook);
+
+        float price = priceCalculator.price();
+        float discount = (16f * 5f/100f);
+        float expectedPrice = 16f - discount;
+
+        Assert.assertEquals(expectedPrice, price, 0.00f);
+    }
+
 }
