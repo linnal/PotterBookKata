@@ -13,7 +13,7 @@ public class TestShoppingBasket {
     @Test
     public void notEmptyBasket(){
         ShoppingBasket shoppingBasket = new ShoppingBasket();
-        shoppingBasket.add(new Book());
+        shoppingBasket.add(new Book("first"));
 
         Assert.assertFalse(shoppingBasket.isEmpty());
     }

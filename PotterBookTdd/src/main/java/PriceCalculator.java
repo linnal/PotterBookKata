@@ -13,7 +13,7 @@ public class PriceCalculator {
         if(shoppingBasket.isEmpty()) {
             return 0;
         }else{
-            return 8;
+            return 8 * shoppingBasket.size();
         }
     }
 

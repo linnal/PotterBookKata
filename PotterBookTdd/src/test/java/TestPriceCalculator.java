@@ -18,7 +18,7 @@ public class TestPriceCalculator {
         ShoppingBasket shoppingBasket = new ShoppingBasket();
         PriceCalculator priceCalculator = new PriceCalculator(shoppingBasket);
 
-        shoppingBasket.add(new Book());
+        shoppingBasket.add(new Book("first"));
 
         float price = priceCalculator.price();
 
