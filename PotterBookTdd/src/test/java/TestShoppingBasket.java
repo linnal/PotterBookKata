@@ -1,18 +1,23 @@
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 public class TestShoppingBasket {
 
+    ShoppingBasket shoppingBasket;
+
+    @Before
+    public void init(){
+        shoppingBasket = new ShoppingBasket();
+    }
+
     @Test
     public void emptyBasket(){
-        ShoppingBasket shoppingBasket = new ShoppingBasket();
-
         Assert.assertTrue(shoppingBasket.isEmpty());
     }
 
     @Test
     public void notEmptyBasket(){
-        ShoppingBasket shoppingBasket = new ShoppingBasket();
         shoppingBasket.add(new Book("first"));
 
         Assert.assertFalse(shoppingBasket.isEmpty());
@@ -20,14 +25,11 @@ public class TestShoppingBasket {
 
     @Test
     public void emptyShoppingBasketSize(){
-        ShoppingBasket shoppingBasket = new ShoppingBasket();
-
         Assert.assertEquals(0, shoppingBasket.size());
     }
 
     @Test
     public void shoppingBasketSize(){
-        ShoppingBasket shoppingBasket = new ShoppingBasket();
         shoppingBasket.add(new Book("first"));
         shoppingBasket.add(new Book("first"));
 
@@ -36,7 +38,6 @@ public class TestShoppingBasket {
 
     @Test
     public void countDistinctBooksOnceForSameBooks(){
-        ShoppingBasket shoppingBasket = new ShoppingBasket();
         shoppingBasket.add(new Book("first"));
         shoppingBasket.add(new Book("first"));
 
@@ -45,7 +46,6 @@ public class TestShoppingBasket {
 
     @Test
     public void countDistinctBooks(){
-        ShoppingBasket shoppingBasket = new ShoppingBasket();
         shoppingBasket.add(new Book("first"));
         shoppingBasket.add(new Book("first"));
         shoppingBasket.add(new Book("second"));
