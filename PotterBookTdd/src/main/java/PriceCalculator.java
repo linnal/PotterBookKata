@@ -15,7 +15,7 @@ public class PriceCalculator {
         }else{
             float price = 8 * shoppingBasket.size();
             float discount = 0;
-            if(shoppingBasket.countDistinctBooks() > 0){
+            if(shoppingBasket.countDistinctBooks() > 1){
                 discount = calculateDiscount(price);
             }
             return price - discount;
