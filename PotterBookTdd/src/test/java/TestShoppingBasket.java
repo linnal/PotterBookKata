@@ -43,6 +43,14 @@ public class TestShoppingBasket {
         Assert.assertEquals(1, shoppingBasket.countDistinctBooks());
     }
 
+    @Test
+    public void countDistinctBooks(){
+        ShoppingBasket shoppingBasket = new ShoppingBasket();
+        shoppingBasket.add(new Book("first"));
+        shoppingBasket.add(new Book("first"));
+        shoppingBasket.add(new Book("second"));
 
+        Assert.assertEquals(2, shoppingBasket.countDistinctBooks());
+    }
 
 }
