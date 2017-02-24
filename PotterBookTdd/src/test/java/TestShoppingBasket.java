@@ -18,4 +18,11 @@ public class TestShoppingBasket {
         Assert.assertFalse(shoppingBasket.isEmpty());
     }
 
+    @Test
+    public void emptyShoppingBasketSize(){
+        ShoppingBasket shoppingBasket = new ShoppingBasket();
+
+        Assert.assertEquals(0, shoppingBasket.size());
+    }
+
 }
