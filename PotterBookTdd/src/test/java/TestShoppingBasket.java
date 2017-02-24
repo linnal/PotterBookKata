@@ -25,4 +25,13 @@ public class TestShoppingBasket {
         Assert.assertEquals(0, shoppingBasket.size());
     }
 
+    @Test
+    public void shoppingBasketSize(){
+        ShoppingBasket shoppingBasket = new ShoppingBasket();
+        shoppingBasket.add(new Book("first"));
+        shoppingBasket.add(new Book("first"));
+
+        Assert.assertEquals(2, shoppingBasket.size());
+    }
+
 }
