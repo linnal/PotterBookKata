@@ -1,15 +1,18 @@
+import java.util.HashMap;
+
 public class ShoppingBasket {
 
-    boolean empty = true;
+    HashMap<Book, Integer> books = new HashMap<Book, Integer>();
+
     int count = 0;
 
     public void add(Book book) {
-        empty = false;
+        books.put(book, 1);
         count += 1;
     }
 
     public boolean isEmpty() {
-        return empty;
+        return books.isEmpty();
     }
 
     public int size() {
@@ -17,6 +20,6 @@ public class ShoppingBasket {
     }
 
     public int countDistinctBooks() {
-        return 1;
+        return books.keySet().size();
     }
 }
