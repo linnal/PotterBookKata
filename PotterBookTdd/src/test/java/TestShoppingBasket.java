@@ -34,4 +34,15 @@ public class TestShoppingBasket {
         Assert.assertEquals(2, shoppingBasket.size());
     }
 
+    @Test
+    public void countDistinctBooksOnceForSameBooks(){
+        ShoppingBasket shoppingBasket = new ShoppingBasket();
+        shoppingBasket.add(new Book("first"));
+        shoppingBasket.add(new Book("first"));
+
+        Assert.assertEquals(1, shoppingBasket.countDistinctBooks());
+    }
+
+
+
 }
