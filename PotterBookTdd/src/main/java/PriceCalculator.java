@@ -3,12 +3,18 @@
  */
 public class PriceCalculator {
 
-    public PriceCalculator(ShoppingBasket shoppingBasket) {
+    ShoppingBasket shoppingBasket;
 
+    public PriceCalculator(ShoppingBasket shoppingBasket) {
+        this.shoppingBasket = shoppingBasket;
     }
 
     public float price() {
-        return 0;
+        if(shoppingBasket.isEmpty()) {
+            return 0;
+        }else{
+            return 8;
+        }
     }
 
 }
