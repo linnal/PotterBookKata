@@ -10,4 +10,12 @@ public class TestShoppingBasket {
         Assert.assertTrue(shoppingBasket.isEmpty());
     }
 
+    @Test
+    public void notEmptyBasket(){
+        ShoppingBasket shoppingBasket = new ShoppingBasket();
+        shoppingBasket.add(new Book());
+
+        Assert.assertFalse(shoppingBasket.isEmpty());
+    }
+
 }
