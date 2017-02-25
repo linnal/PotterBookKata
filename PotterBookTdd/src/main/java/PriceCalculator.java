@@ -13,18 +13,19 @@ public class PriceCalculator {
     public float price() {
         if(shoppingBasket.isEmpty()) {
             return 0;
-        }else{
-            float totalPrice = BOOK_PRICE * shoppingBasket.size();
-            float discount = 0;
-            int distinctBooks = shoppingBasket.countDistinctBooks();
-            while(distinctBooks > 0){
-                discount += calculateDiscount(BOOK_PRICE * distinctBooks, distinctBooks);
-
-                shoppingBasket.removeOneForDistinctBook();
-                distinctBooks = shoppingBasket.countDistinctBooks();
-            }
-            return totalPrice - discount;
         }
+
+        float totalPrice = BOOK_PRICE * shoppingBasket.size();
+        float discount = 0;
+        int distinctBooks = shoppingBasket.countDistinctBooks();
+        while(distinctBooks > 0){
+            discount += calculateDiscount(BOOK_PRICE * distinctBooks, distinctBooks);
+
+            shoppingBasket.removeOneForDistinctBook();
+            distinctBooks = shoppingBasket.countDistinctBooks();
+        }
+        return totalPrice - discount;
+
     }
 
     private float calculateDiscount(float price, int differentBooks){
