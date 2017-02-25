@@ -16,10 +16,14 @@ public class PriceCalculator {
             float price = 8 * shoppingBasket.size();
             float discount = 0;
             int distinctBooks = shoppingBasket.countDistinctBooks();
-            if(distinctBooks > 1){
+            while(distinctBooks > 1){
                 discount = calculateDiscount(price, distinctBooks);
+                price -= discount;
+
+                shoppingBasket.removeOneForDistinctBook();
+                distinctBooks = shoppingBasket.countDistinctBooks();
             }
-            return price - discount;
+            return price;
         }
     }
 
