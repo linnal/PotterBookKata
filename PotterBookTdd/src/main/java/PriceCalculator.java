@@ -27,8 +27,12 @@ public class PriceCalculator {
         switch (differentBooks){
             case 2:
                 return price * 5f/100f;
-            default:
+            case 3:
                 return price * 10f/100f;
+            case 4:
+                return price * 20f/100f;
+            default:
+                return 0;
         }
 
     }
