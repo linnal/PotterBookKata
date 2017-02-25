@@ -15,15 +15,22 @@ public class PriceCalculator {
         }else{
             float price = 8 * shoppingBasket.size();
             float discount = 0;
-            if(shoppingBasket.countDistinctBooks() > 1){
-                discount = calculateDiscount(price);
+            int distinctBooks = shoppingBasket.countDistinctBooks();
+            if(distinctBooks > 1){
+                discount = calculateDiscount(price, distinctBooks);
             }
             return price - discount;
         }
     }
 
-    private float calculateDiscount(float price){
-        return price * 5f/100f;
+    private float calculateDiscount(float price, int differentBooks){
+        switch (differentBooks){
+            case 2:
+                return price * 5f/100f;
+            default:
+                return price * 10f/100f;
+        }
+
     }
 
 }
