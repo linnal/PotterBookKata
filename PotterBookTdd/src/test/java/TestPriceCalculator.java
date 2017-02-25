@@ -108,4 +108,20 @@ public class TestPriceCalculator {
         Assert.assertEquals(expectedPrice, price, 0.00f);
     }
 
+    @Test
+    public void multipleDiscountsCaseOne(){
+        shoppingBasket.add(new Book("first"));
+        shoppingBasket.add(new Book("first"));
+        shoppingBasket.add(new Book("second"));
+        shoppingBasket.add(new Book("second"));
+        shoppingBasket.add(new Book("third"));
+        shoppingBasket.add(new Book("third"));
+        shoppingBasket.add(new Book("fifth"));
+        shoppingBasket.add(new Book("fifth"));
+
+        float price = priceCalculator.price();
+
+        Assert.assertEquals(51.6, price, 0.01f);
+    }
+
 }
