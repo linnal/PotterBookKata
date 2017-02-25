@@ -54,4 +54,20 @@ public class TestPriceCalculator {
         Assert.assertEquals(expectedPrice, price, 0.00f);
     }
 
+    @Test
+    public void getDiscountFor3DifferentBooks(){
+        Book firstBbook = new Book("first");
+        Book secondBook = new Book("second");
+        Book thirdBook = new Book("third");
+        shoppingBasket.add(firstBbook);
+        shoppingBasket.add(secondBook);
+        shoppingBasket.add(thirdBook);
+
+        float price = priceCalculator.price();
+        float discount = (3*8 * 10f/100f);
+        float expectedPrice = 3*8f - discount;
+
+        Assert.assertEquals(expectedPrice, price, 0.00f);
+    }
+
 }
