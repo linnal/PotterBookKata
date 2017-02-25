@@ -120,8 +120,10 @@ public class TestPriceCalculator {
         shoppingBasket.add(new Book("fifth"));
 
         float price = priceCalculator.price();
+        float discount = 2*(4*8 * 20f/100f);
+        float expectedPrice = 8*8f - discount;
 
-        Assert.assertEquals(51.6, price, 0.01f);
+        Assert.assertEquals(expectedPrice, price, 0.01f);
     }
 
 }

@@ -4,6 +4,7 @@
 public class PriceCalculator {
 
     ShoppingBasket shoppingBasket;
+    int BOOK_PRICE = 8;
 
     public PriceCalculator(ShoppingBasket shoppingBasket) {
         this.shoppingBasket = shoppingBasket;
@@ -13,17 +14,16 @@ public class PriceCalculator {
         if(shoppingBasket.isEmpty()) {
             return 0;
         }else{
-            float price = 8 * shoppingBasket.size();
+            float totalPrice = BOOK_PRICE * shoppingBasket.size();
             float discount = 0;
             int distinctBooks = shoppingBasket.countDistinctBooks();
-            while(distinctBooks > 1){
-                discount = calculateDiscount(price, distinctBooks);
-                price -= discount;
+            while(distinctBooks > 0){
+                discount += calculateDiscount(BOOK_PRICE * distinctBooks, distinctBooks);
 
                 shoppingBasket.removeOneForDistinctBook();
                 distinctBooks = shoppingBasket.countDistinctBooks();
             }
-            return price;
+            return totalPrice - discount;
         }
     }
 
