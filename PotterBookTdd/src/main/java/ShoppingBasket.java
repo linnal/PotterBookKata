@@ -1,4 +1,6 @@
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 public class ShoppingBasket {
 
@@ -19,5 +21,22 @@ public class ShoppingBasket {
 
     public int countDistinctBooks() {
         return books.keySet().size();
+    }
+
+    public void removeOneForDistinctBook() {
+        for(Book book: getDistinctBooks()){
+            int count = books.get(book) - 1;
+            if(count == 0){
+                books.remove(book);
+            }else {
+                books.put(book, count);
+            }
+        }
+    }
+
+    private Set<Book> getDistinctBooks(){
+        Set<Book> setBooks = new HashSet<Book>();
+        setBooks.addAll(books.keySet());
+        return setBooks;
     }
 }
