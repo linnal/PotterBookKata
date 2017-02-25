@@ -53,4 +53,21 @@ public class TestShoppingBasket {
         Assert.assertEquals(2, shoppingBasket.countDistinctBooks());
     }
 
+    @Test
+    public void removeOneForEachDistinctBook(){
+        shoppingBasket.add(new Book("first"));
+        shoppingBasket.add(new Book("first"));
+        shoppingBasket.add(new Book("second"));
+        shoppingBasket.add(new Book("second"));
+        shoppingBasket.add(new Book("third"));
+
+        Assert.assertEquals(3, shoppingBasket.countDistinctBooks());
+        Assert.assertEquals(5, shoppingBasket.size());
+
+        shoppingBasket.removeOneForDistinctBook();
+
+        Assert.assertEquals(2, shoppingBasket.countDistinctBooks());
+        Assert.assertEquals(2, shoppingBasket.size());
+    }
+
 }
