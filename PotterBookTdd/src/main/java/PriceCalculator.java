@@ -31,6 +31,8 @@ public class PriceCalculator {
                 return price * 10f/100f;
             case 4:
                 return price * 20f/100f;
+            case 5:
+                return price * 25f/100f;
             default:
                 return 0;
         }
